@@ -10,6 +10,12 @@ I want to be an indie game developer. So this is my first real try to make a non
 * Try Reddit communication.
 * Get feedback for my work.
 
+## Credits
+
+* Standa Novák - design, programming
+* Connor Mattson - graphics, animations, proper English localization :)
+* ... anyone else is welcome to contribute too!
+
 ## Game Design
 
 On wiki: https://github.com/StaNov/LoadingGame/wiki
