@@ -1,19 +1,15 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 using System.Collections;
 
 public class Door : MonoBehaviour {
 
-    public Text testText;
+    void OnMouseDown() {
+        if (EventSystem.current.IsPointerOverGameObject()) {
+            return;
+        }
 
-    void Start() {
-        testText.gameObject.SetActive(false);
-    }
-
-    IEnumerator OnMouseDown() {
-        // TODO
-        testText.gameObject.SetActive(true);
-        yield return new WaitForSeconds(0.5f);
-        testText.gameObject.SetActive(false);
+        DialogueSystem.OnKnock();
     }
 }
