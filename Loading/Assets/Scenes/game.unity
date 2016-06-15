@@ -552,10 +552,10 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 82
+    m_FontSize: 60
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 6
     m_MaxSize: 125
     m_Alignment: 0
     m_AlignByGeometry: 0
@@ -1074,3 +1074,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wrapper: {fileID: 1236748909}
   text: {fileID: 1003361331}
+  dialogueLines:
+  - Somebody's in here!
+  - I'll be out in a minute!
+  - Just wait a second, ok?
+  - You can't speed up my guts that way! You know it, right?
+  - Fine, you know what? I'll be here even longer!
+  - Leave me alone!
+  - Oh my god, I'm going out, okay?! Jeez!
