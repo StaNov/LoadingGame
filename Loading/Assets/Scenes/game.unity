@@ -227,7 +227,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 50, y: 0}
+  m_SizeDelta: {x: 372, y: 0}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &285482693
 MonoBehaviour:
@@ -380,7 +380,7 @@ Transform:
   m_GameObject: {fileID: 380127173}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -4.85, z: 0}
-  m_LocalScale: {x: 2.5, y: 2.5, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
@@ -409,7 +409,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Size: {x: 5, y: 10}
+  m_Size: {x: 12.5, y: 25}
 --- !u!1 &772854411
 GameObject:
   m_ObjectHideFlags: 0
@@ -580,7 +580,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maximumWidth: 1200
-  secondsToLoad: 20
+  secondsToLoad: 35
   innerBarRectTransform: {fileID: 285482692}
   percentsText: {fileID: 1108881322}
 --- !u!1 &1003361329
@@ -615,8 +615,8 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -60, y: -60}
+  m_AnchoredPosition: {x: 7, y: 21}
+  m_SizeDelta: {x: -104, y: -142}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1003361331
 MonoBehaviour:
@@ -641,16 +641,17 @@ MonoBehaviour:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 60
     m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 6
-    m_MaxSize: 125
+    m_BestFit: 1
+    m_MinSize: 43
+    m_MaxSize: 60
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Hey you!
+  m_Text: Lorem ipsum some message for the reader of this, so I'm making it little
+    bit longer, so it can be used for longer text too.
 --- !u!222 &1003361332
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1002,7 +1003,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 336c5eae22dde7d438d68af532a423f9, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1077,4 +1078,5 @@ MonoBehaviour:
   - Just wait a second, ok?
   - You can't speed up my guts that way! You know it, right?
   - Leave me alone!
+  - '...'
   - Oh my god, I'm going out, okay?! Jeez!
