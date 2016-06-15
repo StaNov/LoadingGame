@@ -6,6 +6,7 @@ using System.Collections;
 public class LoadingBar : MonoBehaviour {
 
     public float maximumWidth = 400;
+    public float secondsToLoad = 20;
     public RectTransform innerBarRectTransform;
     public Text percentsText;
 
@@ -23,7 +24,7 @@ public class LoadingBar : MonoBehaviour {
             );
             percentsText.text = loadedPercents + " %";
 
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(secondsToLoad / 100);
         }
 
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
