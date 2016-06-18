@@ -5,6 +5,7 @@ using System.Collections;
 public class EndingLabel : MonoBehaviour {
 
     public LevelEnd levelEnd;
+    public Sprite achievedSprite;
 
     private Image image;
 
@@ -14,9 +15,7 @@ public class EndingLabel : MonoBehaviour {
 
     void Start () {
         if (LevelEnder.levelEnd == levelEnd) {
-            Color c = image.color;
-            c.a = 1;
-            image.color = c;
+            image.sprite = achievedSprite;
         }
     }
 
