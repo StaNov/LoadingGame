@@ -14,12 +14,14 @@ public class EndingLabel : MonoBehaviour {
     }
 
     void Start () {
+        #if !UNITY_EDITOR
+        if (levelEnd == LevelEnd.TEST) {
+            Destroy(gameObject);
+        }
+        #endif
+
         if (LevelEnder.levelEnd == levelEnd) {
             image.sprite = achievedSprite;
         }
-    }
-
-    void Update () {
-        
     }
 }
