@@ -18,9 +18,9 @@ public class LoadingBar : MonoBehaviour {
         while (loadedPercents < 100) {
             loadedPercents++;
 
-            innerBarRectTransform.sizeDelta = new Vector2(
-                maximumWidth * (loadedPercents/100f), 
-                innerBarRectTransform.sizeDelta.y
+            innerBarRectTransform.anchoredPosition = new Vector2(
+                maximumWidth * (loadedPercents/100f),
+                innerBarRectTransform.anchoredPosition.y
             );
             percentsText.text = loadedPercents + " %";
 
