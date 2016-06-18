@@ -39,10 +39,16 @@ public class DialogueSystem : MonoBehaviour {
         
         instance.text.text = dialogueLines[currentLinesIndex];
         currentLinesIndex++;
+
         instance.wrapper.SetActive(true);
     }
 
     public void OnGuiClick() {
+        if (currentLinesIndex >= dialogueLines.Length) {
+            LevelEnder.EndGame(LevelEnd.IMPATIENT);
+            return;
+        }
+
         wrapper.SetActive(false);
     }
 }

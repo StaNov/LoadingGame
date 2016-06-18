@@ -27,6 +27,6 @@ public class LoadingBar : MonoBehaviour {
             yield return new WaitForSeconds(secondsToLoad / 100);
         }
 
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        LevelEnder.EndGame(LevelEnd.PATIENT);
     }
 }
