@@ -22,6 +22,7 @@ public class EndingLabel : MonoBehaviour {
 
         if (LevelEnder.levelEnd == levelEnd) {
             image.sprite = achievedSprite;
+            transform.SetParent(transform.parent.parent);
         }
     }
 }
