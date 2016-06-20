@@ -1073,7 +1073,7 @@ GameObject:
   - 4: {fileID: 1796164186}
   - 108: {fileID: 1796164185}
   m_Layer: 0
-  m_Name: SpotLight
+  m_Name: DirectionalLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1087,9 +1087,9 @@ Light:
   m_GameObject: {fileID: 1796164184}
   m_Enabled: 1
   serializedVersion: 6
-  m_Type: 2
+  m_Type: 1
   m_Color: {r: 0.9558824, g: 0.86262083, b: 0.6958262, a: 1}
-  m_Intensity: 8
+  m_Intensity: 0.51
   m_Range: 10
   m_SpotAngle: 88.6
   m_CookieSize: 10
@@ -1118,10 +1118,10 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1796164184}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0.25038958, y: -0.2305348, z: 0.01419367, w: 0.9401901}
   m_LocalPosition: {x: 0, y: 6.97, z: -6.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 28.513899, y: -29.0285, z: -5.7973}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
