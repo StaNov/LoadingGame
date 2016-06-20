@@ -12,6 +12,7 @@ GameObject:
   - 114: {fileID: 11439672}
   - 114: {fileID: 11455580}
   - 114: {fileID: 11472990}
+  - 95: {fileID: 9573484}
   m_Layer: 5
   m_Name: EndingLabel
   m_TagString: Untagged
@@ -36,6 +37,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!95 &9573484
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 130400}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 812052d90c5a209409d6e63f48b7edba, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &11405960
 MonoBehaviour:
   m_ObjectHideFlags: 1
