@@ -8,6 +8,7 @@ public class LevelEnder : MonoBehaviour {
     public AudioClip toiletFlushing;
     public AudioClip footSteps;
     public AudioClip doorSqueak;
+    public AudioClip fart;
 
     private static LevelEnder instance;
     public static LevelEnd levelEnd {get; private set;}
@@ -32,6 +33,10 @@ public class LevelEnder : MonoBehaviour {
     }
 
     IEnumerator EndGame() {
+        audioSource.PlayOneShot(fart);
+        LoadingBar.FillRestOfLoadingBar(fart.length);
+        yield return new WaitForSeconds(fart.length);
+
         audioSource.PlayOneShot(toiletFlushing);
         yield return new WaitForSeconds(toiletFlushing.length);
 
