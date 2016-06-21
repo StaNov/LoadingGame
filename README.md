@@ -17,6 +17,9 @@ I want to be an indie game developer. So this is my first real try to make a non
 * ... anyone else is welcome to contribute too!
 
 * Knock sound effect: http://www.mediacollege.com/downloads/sound-effects/household/door-knock-01.wav
+* Toilet flushing: http://soundbible.com/1657-Toilet-Flushing.html
+* Footsteps: http://soundbible.com/2057-Footsteps-On-Cement.html
+* Door squeak: http://soundbible.com/873-Door-Squeak.html
 
 ## Game Design
 

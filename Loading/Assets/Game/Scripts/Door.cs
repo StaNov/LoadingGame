@@ -8,9 +8,11 @@ public class Door : MonoBehaviour {
     public AudioClip[] knocks;
 
     private AudioSource audioSource;
+    private Animator animator;
 
     void Awake() {
         audioSource = GetComponent<AudioSource>();
+        animator = GetComponent<Animator>();
     }
 
     void OnMouseDown() {
@@ -19,6 +21,7 @@ public class Door : MonoBehaviour {
         }
 
         audioSource.PlayOneShot(knocks[Random.Range(0, knocks.Length)]);
+        animator.SetTrigger("knock");
         DialogueSystem.OnKnock();
     }
 }
