@@ -22,6 +22,7 @@ public class LevelEnder : MonoBehaviour {
             DontDestroyOnLoad(gameObject);
             audioSource = GetComponent<AudioSource>();
         } else {
+            instance.alreadyEnding = false;
             Destroy(gameObject);
         }
     }
