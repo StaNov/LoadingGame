@@ -16,6 +16,8 @@ I want to be an indie game developer. So this is my first real try to make a non
 * Connor Mattson - graphics, animations, proper English localization :)
 * ... anyone else is welcome to contribute too!
 
+* Knock sound effect: http://www.mediacollege.com/downloads/sound-effects/household/door-knock-01.wav
+
 ## Game Design
 
 On wiki: https://github.com/StaNov/LoadingGame/wiki
