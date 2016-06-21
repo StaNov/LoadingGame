@@ -8,11 +8,13 @@ public class DialogueSystem : MonoBehaviour, IPointerDownHandler {
 
     public GameObject wrapper;
     public Text text;
+    public float secondsBeforeDialogMayBeClosed = 0.7f;
 
     [Multiline]
     public string[] dialogueLines;
 
     private int currentLinesIndex;
+    private float timeLastLineShowed;
     
 
     private static DialogueSystem instance;
@@ -41,11 +43,16 @@ public class DialogueSystem : MonoBehaviour, IPointerDownHandler {
         
         instance.text.text = dialogueLines[currentLinesIndex];
         currentLinesIndex++;
+        timeLastLineShowed = Time.time;
 
         instance.wrapper.SetActive(true);
     }
 
     public void OnPointerDown(PointerEventData eventData) {
+        if (Time.time - timeLastLineShowed < secondsBeforeDialogMayBeClosed) {
+            return;
+        }
+
         wrapper.SetActive(false);
 
         if (currentLinesIndex >= dialogueLines.Length) {
