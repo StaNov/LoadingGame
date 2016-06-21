@@ -665,7 +665,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maximumWidth: 1200
-  secondsToLoad: 35
+  secondsToLoad: 5
   innerBarRectTransform: {fileID: 285482692}
   percentsText: {fileID: 1108881322}
 --- !u!114 &847063944
@@ -688,6 +688,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 899810987}
   - 114: {fileID: 899810986}
+  - 82: {fileID: 899810985}
   m_Layer: 0
   m_Name: LevelEnder
   m_TagString: Untagged
@@ -695,6 +696,80 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!82 &899810985
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 899810984}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!114 &899810986
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -706,6 +781,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136277489e8c5aa42bb7b598470b25f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  toiletFlushing: {fileID: 8300000, guid: acdc37339c98f854abf370cefd9f492d, type: 3}
+  footSteps: {fileID: 8300000, guid: 9b12a5b3c0e62974b9203165a05fc972, type: 3}
+  doorSqueak: {fileID: 8300000, guid: bf6503c296cc3ba4a95c4962b3caa7b8, type: 3}
 --- !u!4 &899810987
 Transform:
   m_ObjectHideFlags: 0

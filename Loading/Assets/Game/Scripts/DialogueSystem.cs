@@ -46,11 +46,10 @@ public class DialogueSystem : MonoBehaviour, IPointerDownHandler {
     }
 
     public void OnPointerDown(PointerEventData eventData) {
+        wrapper.SetActive(false);
+
         if (currentLinesIndex >= dialogueLines.Length) {
             LevelEnder.EndGame(LevelEnd.IMPATIENT);
-            return;
         }
-
-        wrapper.SetActive(false);
     }
 }
