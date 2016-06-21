@@ -1,8 +1,10 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 using System.Collections;
+using System;
 
-public class DialogueSystem : MonoBehaviour {
+public class DialogueSystem : MonoBehaviour, IPointerDownHandler {
 
     public GameObject wrapper;
     public Text text;
@@ -43,7 +45,7 @@ public class DialogueSystem : MonoBehaviour {
         instance.wrapper.SetActive(true);
     }
 
-    public void OnGuiClick() {
+    public void OnPointerDown(PointerEventData eventData) {
         if (currentLinesIndex >= dialogueLines.Length) {
             LevelEnder.EndGame(LevelEnd.IMPATIENT);
             return;
