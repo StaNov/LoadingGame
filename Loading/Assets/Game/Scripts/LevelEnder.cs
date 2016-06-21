@@ -14,19 +14,29 @@ public class LevelEnder : MonoBehaviour {
     public static LevelEnd levelEnd {get; private set;}
 
     private AudioSource audioSource;
+    private bool alreadyEnding;
 
     void Awake () {
         if (instance == null) {
             instance = this;
             DontDestroyOnLoad(gameObject);
-            levelEnd = LevelEnd.TEST;
             audioSource = GetComponent<AudioSource>();
         } else {
             Destroy(gameObject);
         }
     }
 
+    void Start() {
+        levelEnd = LevelEnd.TEST;
+        alreadyEnding = false;
+    }
+
     public static void EndGame(LevelEnd levelEnd) {
+        if (instance.alreadyEnding) {
+            return;
+        }
+
+        instance.alreadyEnding = true;
         LevelEnder.levelEnd = levelEnd;
 
         instance.StartCoroutine(instance.EndGame());

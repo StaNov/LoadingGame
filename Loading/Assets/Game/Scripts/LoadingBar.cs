@@ -10,7 +10,9 @@ public class LoadingBar : MonoBehaviour {
     public RectTransform innerBarRectTransform;
     public Text percentsText;
 
-    private int loadedPercents;
+    private int startPercents;
+    private float startTime;
+    private float endTime;
 
     private static LoadingBar instance;
 
@@ -18,39 +20,46 @@ public class LoadingBar : MonoBehaviour {
         instance = this;
     }
 
-    IEnumerator Start() {
-        loadedPercents = 0;
+    void Start() {
+        startPercents = 0;
+        startTime = Time.time;
+        endTime = startTime + secondsToLoad;
+    }
 
-        while (loadedPercents < 100) {
-            AddOnePercent();
-            yield return new WaitForSeconds(secondsToLoad / 100);
+    void Update() {
+
+        if (CurrentPercents() == 100) {
+            LevelEnder.EndGame(LevelEnd.PATIENT);
         }
-
-        LevelEnder.EndGame(LevelEnd.PATIENT);
+        
+        UpdatePercents();
     }
 
     public static void FillRestOfLoadingBar(float seconds) {
-        instance.StopAllCoroutines();
-        instance.StartCoroutine(instance.FillRestOfLoadingBarCoroutine(seconds));
+        instance.startPercents = instance.CurrentPercents();
+        instance.startTime = Time.time;
+        instance.endTime = instance.startTime + seconds;
     }
 
-    private IEnumerator FillRestOfLoadingBarCoroutine(float seconds) {
-        int percentsToFill = 100 - loadedPercents;
-        float percentsInterval = seconds / (float) percentsToFill;
-
-        while (loadedPercents < 100) {
-            AddOnePercent();
-            yield return new WaitForSeconds(percentsInterval);
-        }
-    }
-
-    private void AddOnePercent() {
-        loadedPercents++;
+    private void UpdatePercents() {
+        int currentPercents = CurrentPercents();
 
         innerBarRectTransform.anchoredPosition = new Vector2(
-            maximumWidth * (loadedPercents / 100f),
+            maximumWidth * (currentPercents / 100f),
             innerBarRectTransform.anchoredPosition.y
         );
-        percentsText.text = loadedPercents + " %";
+        percentsText.text = currentPercents + " %";
+    }
+
+    private int CurrentPercents() {
+        if (Time.time >= endTime) {
+            return 100;
+        }
+
+        float timeProgress = (Time.time - startTime) / (endTime - startTime);
+
+        float result = startPercents + (timeProgress * (100 - startPercents));
+
+        return Mathf.FloorToInt(result);
     }
 }
