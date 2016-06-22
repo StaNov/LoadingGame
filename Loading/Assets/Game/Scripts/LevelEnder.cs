@@ -52,7 +52,7 @@ public class LevelEnder : MonoBehaviour {
         yield return new WaitForSeconds(toiletFlushing.length);
 
         MainCamera.ZoomOut();
-        LoadingBar.DestroySelf();
+        Door.OpenDoor();
         audioSource.PlayOneShot(doorSqueak);
         yield return new WaitForSeconds(doorSqueak.length);
 

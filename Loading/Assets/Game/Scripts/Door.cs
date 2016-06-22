@@ -6,13 +6,23 @@ using System.Collections;
 public class Door : MonoBehaviour {
 
     public AudioClip[] knocks;
+    public GameObject closedDoor;
+    public GameObject openedDoor;
+
+    private static Door instance;
 
     private AudioSource audioSource;
     private Animator animator;
 
     void Awake() {
+        instance = this;
         audioSource = GetComponent<AudioSource>();
         animator = GetComponent<Animator>();
+    }
+
+    void Start() {
+        closedDoor.SetActive(true);
+        openedDoor.SetActive(false);
     }
 
     void OnMouseDown() {
@@ -23,5 +33,11 @@ public class Door : MonoBehaviour {
         audioSource.PlayOneShot(knocks[Random.Range(0, knocks.Length)]);
         animator.SetTrigger("knock");
         DialogueSystem.OnKnock();
+    }
+
+    public static void OpenDoor() {
+        LoadingBar.DestroySelf();
+        instance.closedDoor.SetActive(false);
+        instance.openedDoor.SetActive(true);
     }
 }
