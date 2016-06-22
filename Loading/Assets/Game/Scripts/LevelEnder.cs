@@ -51,13 +51,13 @@ public class LevelEnder : MonoBehaviour {
         audioSource.PlayOneShot(toiletFlushing);
         yield return new WaitForSeconds(toiletFlushing.length);
 
+        MainCamera.ZoomOut();
+        LoadingBar.DestroySelf();
         audioSource.PlayOneShot(doorSqueak);
         yield return new WaitForSeconds(doorSqueak.length);
 
         audioSource.PlayOneShot(footSteps);
         yield return new WaitForSeconds(footSteps.length);
-
-        yield return new WaitForSeconds(1); // just one more second before loading end-scene
 
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }

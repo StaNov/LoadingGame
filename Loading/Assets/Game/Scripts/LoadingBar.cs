@@ -62,4 +62,8 @@ public class LoadingBar : MonoBehaviour {
 
         return Mathf.FloorToInt(result);
     }
+
+    public static void DestroySelf() {
+        Destroy(instance.transform.parent.gameObject);
+    }
 }
