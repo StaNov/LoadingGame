@@ -10,6 +10,7 @@ public class MainCamera : MonoBehaviour {
     void Awake () {
         instance = this;
         animator = GetComponent<Animator>();
+        Screen.sleepTimeout = SleepTimeout.NeverSleep;
     }
 
     public static void ZoomOut () {
