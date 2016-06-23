@@ -13,6 +13,7 @@ public class Door : MonoBehaviour {
 
     private AudioSource audioSource;
     private Animator animator;
+    private bool knockingEnabled;
 
     void Awake() {
         instance = this;
@@ -23,9 +24,14 @@ public class Door : MonoBehaviour {
     void Start() {
         closedDoor.SetActive(true);
         openedDoor.SetActive(false);
+        knockingEnabled = true;
     }
 
     void OnMouseDown() {
+        if (!knockingEnabled) {
+            return;
+        }
+
         if (EventSystem.current.IsPointerOverGameObject()) {
             return;
         }
@@ -33,6 +39,10 @@ public class Door : MonoBehaviour {
         audioSource.PlayOneShot(knocks[Random.Range(0, knocks.Length)]);
         animator.SetTrigger("knock");
         DialogueSystem.OnKnock();
+    }
+
+    public static void DisableKnocking() {
+        instance.knockingEnabled = false;
     }
 
     public static void OpenDoor() {

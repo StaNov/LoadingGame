@@ -56,6 +56,7 @@ public class DialogueSystem : MonoBehaviour, IPointerDownHandler {
         wrapper.SetActive(false);
 
         if (currentLinesIndex >= dialogueLines.Length) {
+            Door.DisableKnocking();
             LevelEnder.EndGame(LevelEnd.IMPATIENT);
         }
     }
