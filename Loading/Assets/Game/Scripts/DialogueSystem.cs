@@ -53,11 +53,17 @@ public class DialogueSystem : MonoBehaviour, IPointerDownHandler {
             return;
         }
 
-        wrapper.SetActive(false);
+        CloseDialogue();
+    }
 
-        if (currentLinesIndex >= dialogueLines.Length) {
+    public static void CloseDialogue() {
+
+        instance.wrapper.SetActive(false);
+
+        if (instance.currentLinesIndex >= instance.dialogueLines.Length) {
             Door.DisableKnocking();
             LevelEnder.EndGame(LevelEnd.IMPATIENT);
         }
+
     }
 }

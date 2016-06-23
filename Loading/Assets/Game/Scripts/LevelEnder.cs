@@ -40,13 +40,18 @@ public class LevelEnder : MonoBehaviour {
         instance.alreadyEnding = true;
         LevelEnder.levelEnd = levelEnd;
 
-        instance.StartCoroutine(instance.EndGame());
+        instance.StartCoroutine(instance.EndGameCoroutine(levelEnd));
     }
 
-    IEnumerator EndGame() {
-        audioSource.PlayOneShot(fart);
-        LoadingBar.FillRestOfLoadingBar(fart.length);
-        yield return new WaitForSeconds(fart.length);
+    IEnumerator EndGameCoroutine(LevelEnd levelEnd) {
+        DialogueSystem.CloseDialogue();
+        Door.DisableKnocking();
+
+        if (levelEnd == LevelEnd.IMPATIENT) {
+            audioSource.PlayOneShot(fart);
+            LoadingBar.FillRestOfLoadingBar(fart.length);
+            yield return new WaitForSeconds(fart.length);
+        }
 
         audioSource.PlayOneShot(toiletFlushing);
         yield return new WaitForSeconds(toiletFlushing.length);
