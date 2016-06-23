@@ -19,9 +19,13 @@ public class EndingLabel : MonoBehaviour {
             Destroy(gameObject);
         }
         #endif
+        
+        Debug.Log(levelEnd.ToString() + ": " + PlayerPrefs.HasKey(levelEnd.ToString()));
+        if (PlayerPrefs.HasKey(levelEnd.ToString())) {
+            image.sprite = achievedSprite;
+        }
 
         if (LevelEnder.levelEnd == levelEnd) {
-            image.sprite = achievedSprite;
             transform.SetParent(transform.parent.parent);
             GetComponent<Animator>().SetBool("Selected", true);
         }
