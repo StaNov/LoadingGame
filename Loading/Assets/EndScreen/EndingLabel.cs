@@ -20,7 +20,6 @@ public class EndingLabel : MonoBehaviour {
         }
         #endif
         
-        Debug.Log(levelEnd.ToString() + ": " + PlayerPrefs.HasKey(levelEnd.ToString()));
         if (PlayerPrefs.HasKey(levelEnd.ToString())) {
             image.sprite = achievedSprite;
         }
