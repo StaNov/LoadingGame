@@ -22,6 +22,7 @@ I want to be an indie game developer. So this is my first real try to make a non
 * Door squeak: http://soundbible.com/873-Door-Squeak.html
 * Fart sound: http://soundbible.com/643-Motor-Bike-Fart.html
 * Fanfare: http://soundbible.com/1003-Ta-Da.html
+* Forest ambience: http://soundbible.com/1818-Rainforest-Ambience.html
 
 ## Game Design
 
