@@ -24,6 +24,8 @@ I want to be an indie game developer. So this is my first real try to make a non
 * Fanfare: http://soundbible.com/1003-Ta-Da.html
 * Forest ambience: http://soundbible.com/1818-Rainforest-Ambience.html
 
+* Font: https://fonts.google.com/specimen/Tillana?query=tillana
+
 ## Game Design
 
 On wiki: https://github.com/StaNov/LoadingGame/wiki
