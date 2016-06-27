@@ -13,17 +13,21 @@ public class Door : MonoBehaviour {
 
     private AudioSource audioSource;
     private Animator animator;
-    private bool knockingEnabled;
+    private bool knockingEnabled = false;
 
     void Awake() {
         instance = this;
         audioSource = GetComponent<AudioSource>();
         animator = GetComponent<Animator>();
-    }
 
-    void Start() {
         closedDoor.SetActive(true);
         openedDoor.SetActive(false);
+    }
+
+    IEnumerator Start() {
+        // wait before knocking is enabled
+        yield return new WaitForSeconds(0.5f);
+
         knockingEnabled = true;
     }
 
