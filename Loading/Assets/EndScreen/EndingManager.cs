@@ -1,12 +1,19 @@
 ﻿using UnityEngine;
-using System.Collections;
+using UnityEngine.Analytics;
+using System.Collections.Generic;
 
 public class EndingManager : MonoBehaviour {
 
     void Awake () {
-        SocialManager.UnlockAchievement(LevelEnder.levelEnd);
+        LevelEnd levelEnd = LevelEnder.levelEnd;
 
-        PlayerPrefs.SetString(LevelEnder.levelEnd.ToString(), "unlocked");
+        SocialManager.UnlockAchievement(levelEnd);
+        Analytics.CustomEvent("EndSceneLoaded", new Dictionary<string, object> {
+            { "LevelEnd", levelEnd },
+            { "FirstTimeAchieved", ! PlayerPrefs.HasKey(levelEnd.ToString()) }
+        });
+
+        PlayerPrefs.SetString(levelEnd.ToString(), "unlocked");
         PlayerPrefs.Save();
     }
 }
