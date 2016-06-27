@@ -69,5 +69,5 @@ public class LevelEnder : MonoBehaviour {
 }
 
 public enum LevelEnd {
-    TEST, PATIENT, IMPATIENT
+    TEST, PATIENT, IMPATIENT, INTERRUPTED, VIOLENT, FIRE
 }
