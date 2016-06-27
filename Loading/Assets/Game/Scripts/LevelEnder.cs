@@ -9,6 +9,7 @@ public class LevelEnder : MonoBehaviour {
     public AudioClip footSteps;
     public AudioClip doorSqueak;
     public AudioClip fart;
+    public GameObject dwarf;
 
     private static LevelEnder instance;
     public static LevelEnd levelEnd {get; private set;}
@@ -30,6 +31,7 @@ public class LevelEnder : MonoBehaviour {
     void Start() {
         levelEnd = LevelEnd.TEST;
         alreadyEnding = false;
+        dwarf.SetActive(false);
     }
 
     public static void EndGame(LevelEnd levelEnd) {
@@ -62,6 +64,8 @@ public class LevelEnder : MonoBehaviour {
         audioSource.PlayOneShot(doorSqueak);
         yield return new WaitForSeconds(doorSqueak.length);
 
+        dwarf.SetActive(true);
+        dwarf.GetComponentInChildren<Animator>().speed = 1 / footSteps.length;
         audioSource.PlayOneShot(footSteps);
         yield return new WaitForSeconds(footSteps.length);
 
