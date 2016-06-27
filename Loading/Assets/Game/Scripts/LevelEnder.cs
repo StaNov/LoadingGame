@@ -18,20 +18,26 @@ public class LevelEnder : MonoBehaviour {
     private bool alreadyEnding;
 
     void Awake () {
-        if (instance == null) {
+        if (SceneManager.GetActiveScene().buildIndex == 0 || instance == null) {
+            if (instance != null) {
+                Destroy(instance.gameObject);
+            }
+
             instance = this;
             DontDestroyOnLoad(gameObject);
             audioSource = GetComponent<AudioSource>();
+            levelEnd = LevelEnd.TEST;
         } else {
-            instance.alreadyEnding = false;
             Destroy(gameObject);
         }
     }
 
     void Start() {
-        levelEnd = LevelEnd.TEST;
         alreadyEnding = false;
-        dwarf.SetActive(false);
+
+        if (dwarf != null) {
+            dwarf.SetActive(false);
+        }
     }
 
     public static void EndGame(LevelEnd levelEnd) {
