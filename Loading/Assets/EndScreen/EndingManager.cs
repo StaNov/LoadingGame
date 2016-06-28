@@ -22,9 +22,9 @@ public class EndingManager : MonoBehaviour {
     private IEnumerator SendAnalyticsEvent() {
         yield return null;
 
-        Debug.Log(Analytics.CustomEvent("EndSceneLoaded", new Dictionary<string, object> {
+        Analytics.CustomEvent("EndSceneLoaded", new Dictionary<string, object> {
             { "LevelEnd", LevelEnder.levelEnd.ToString() },
             { "FirstTimeAchieved", ! levelEndAlreadyUnlocked }
-        }));
+        });
     }
 }
