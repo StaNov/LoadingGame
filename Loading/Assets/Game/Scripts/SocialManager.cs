@@ -9,18 +9,36 @@ public class SocialManager : MonoBehaviour {
         if (instance == null) {
             instance = this;
             DontDestroyOnLoad(gameObject);
-            Social.localUser.Authenticate(null);
+            Authenticate();
         } else {
             Destroy(gameObject);
         }
     }
 
     public static void UnlockAchievement (LevelEnd levelEnd) {
+        instance.StartCoroutine(instance.UnlockAchievementCoroutine(levelEnd));
+    }
+
+    private IEnumerator UnlockAchievementCoroutine(LevelEnd levelEnd) {
+        if (!Social.localUser.authenticated) {
+            Authenticate();
+        }
+
+        while (!Social.localUser.authenticated) {
+            yield return null;
+        }
+
         #if UNITY_EDITOR
         Debug.Log("Achievement unlocked: " + levelEnd);
         #else
         Social.ReportProgress(GetAchievementId(levelEnd), 100.0, null);
         #endif
+    }
+
+    private void Authenticate() {
+        Social.localUser.Authenticate((success) => {
+            Debug.Log(success ? "Social autenticated" : "SOCIAL NOT AUTENTICATED!!!");
+        });
     }
 
     static string GetAchievementId(LevelEnd levelEnd) {
