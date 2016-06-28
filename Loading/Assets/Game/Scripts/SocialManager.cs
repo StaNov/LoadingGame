@@ -24,7 +24,8 @@ public class SocialManager : MonoBehaviour {
         while (!Social.localUser.authenticated) {
             yield return null;
         }
-        
+
+        #if !UNITY_EDITOR
         Social.ReportProgress(GetAchievementId(levelEnd), 100.0, (success) => {
             if (success) {
                 Debug.Log("Achievement reported: " + levelEnd);
@@ -32,6 +33,9 @@ public class SocialManager : MonoBehaviour {
                 Debug.LogError("Achievement NOT reported: " + levelEnd);
             }
         });
+        #else
+        Debug.Log("Achievement unlocked: " + levelEnd);
+        #endif
     }
 
     private void Authenticate() {
