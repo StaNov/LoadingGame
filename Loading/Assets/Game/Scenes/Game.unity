@@ -1851,13 +1851,19 @@ MonoBehaviour:
   text: {fileID: 1003361331}
   secondsBeforeDialogMayBeClosed: 0.7
   dialogueLines:
-  - Somebody's in here!
-  - I'll be out in a minute!
-  - Just wait a second, ok?
-  - You can't speed up my guts that way! You know it, right?
+  - 'Somebody''s
+
+    in here!'
+  - 'I''ll be out
+
+    in a minute!'
+  - 'Just wait
+
+    a second, ok?'
+  - You can't speed up my guts that way!
   - Leave me alone!
   - '...'
-  - Oh my god, I'm going out, okay?! Jeez!
+  - Okay okay, I'm going out, okay?!
 --- !u!1 &2041356983
 GameObject:
   m_ObjectHideFlags: 0
