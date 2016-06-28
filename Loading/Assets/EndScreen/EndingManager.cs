@@ -8,19 +8,19 @@ public class EndingManager : MonoBehaviour {
     public static bool levelEndAlreadyUnlocked { get; private set; }
 
     void Awake () {
-        LevelEnd levelEnd = LevelEnder.levelEnd;
-        levelEndAlreadyUnlocked = PlayerPrefs.HasKey(levelEnd.ToString());
+        string levelEnd = LevelEnder.levelEnd.ToString();
+        levelEndAlreadyUnlocked = PlayerPrefs.HasKey(levelEnd);
 
-        StartCoroutine(SendAnalyticsEvent());
+        StartCoroutine(UnlockAchievementAndSendAnalyticsEvent());
 
-        SocialManager.UnlockAchievement(levelEnd);
-
-        PlayerPrefs.SetString(levelEnd.ToString(), "unlocked");
+        PlayerPrefs.SetString(levelEnd, "unlocked");
         PlayerPrefs.Save();
     }
 
-    private IEnumerator SendAnalyticsEvent() {
+    private IEnumerator UnlockAchievementAndSendAnalyticsEvent() {
         yield return null;
+
+        SocialManager.UnlockAchievement(LevelEnder.levelEnd);
 
         Analytics.CustomEvent("EndSceneLoaded", new Dictionary<string, object> {
             { "LevelEnd", LevelEnder.levelEnd.ToString() },

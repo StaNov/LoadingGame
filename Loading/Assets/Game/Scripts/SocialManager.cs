@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using GooglePlayGames;
 using System.Collections;
 
 public class SocialManager : MonoBehaviour {
@@ -20,39 +21,47 @@ public class SocialManager : MonoBehaviour {
     }
 
     private IEnumerator UnlockAchievementCoroutine(LevelEnd levelEnd) {
-        if (!Social.localUser.authenticated) {
-            Authenticate();
-        }
-
         while (!Social.localUser.authenticated) {
             yield return null;
         }
-
-        #if UNITY_EDITOR
-        Debug.Log("Achievement unlocked: " + levelEnd);
-        #else
-        Social.ReportProgress(GetAchievementId(levelEnd), 100.0, null);
-        #endif
+        
+        Social.ReportProgress(GetAchievementId(levelEnd), 100.0, (success) => {
+            if (success) {
+                Debug.Log("Achievement reported: " + levelEnd);
+            } else {
+                Debug.LogError("Achievement NOT reported: " + levelEnd);
+            }
+        });
     }
 
     private void Authenticate() {
+
+        #if !UNITY_EDITOR
+        PlayGamesPlatform.Activate();
+        #endif
+
         Social.localUser.Authenticate((success) => {
-            Debug.Log(success ? "Social autenticated" : "SOCIAL NOT AUTENTICATED!!!");
+            if (success) {
+                Debug.Log("Social autenticated");
+            } else {
+                Debug.Log("SOCIAL NOT AUTENTICATED!!!");
+            }
+            
         });
     }
 
     static string GetAchievementId(LevelEnd levelEnd) {
         switch (levelEnd) {
             case LevelEnd.PATIENT:
-                return "CgkIvon-9KIPEAIQAQ";
+                return AchievementsConstants.achievement_patient_ending;
             case LevelEnd.IMPATIENT:
-                return "CgkIvon-9KIPEAIQAg";
+                return AchievementsConstants.achievement_impatient_ending;
             case LevelEnd.INTERRUPTED:
-                return "CgkIvon-9KIPEAIQBQ";
+                return AchievementsConstants.achievement_interrupted_ending;
             case LevelEnd.VIOLENT:
-                return "CgkIvon-9KIPEAIQAw";
+                return AchievementsConstants.achievement_violent_ending;
             case LevelEnd.FIRE:
-                return "CgkIvon-9KIPEAIQBA";
+                return AchievementsConstants.achievement_fire_ending;
         }
 
         return null;
