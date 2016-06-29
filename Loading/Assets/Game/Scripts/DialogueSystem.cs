@@ -66,4 +66,8 @@ public class DialogueSystem : MonoBehaviour, IPointerDownHandler {
         }
 
     }
+
+    public static bool DialogueStarted() {
+        return instance.currentLinesIndex > 0;
+    }
 }

@@ -29,7 +29,8 @@ public class LoadingBar : MonoBehaviour {
     void Update() {
 
         if (CurrentPercents() == 100) {
-            LevelEnder.EndGame(LevelEnd.PATIENT);
+            LevelEnd levelEnd = DialogueSystem.DialogueStarted() ? LevelEnd.INTERRUPTED : LevelEnd.PATIENT;
+            LevelEnder.EndGame(levelEnd);
         }
         
         UpdatePercents();
