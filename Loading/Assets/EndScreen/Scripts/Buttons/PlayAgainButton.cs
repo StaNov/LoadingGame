@@ -21,7 +21,7 @@ public class PlayAgainButton : MonoBehaviour {
         adLoadingPanel.SetActive(true);
         timeSinceAdLoadStarted = Time.time;
 
-        while (!Advertisement.IsReady()) {
+        while (!Advertisement.IsReady("rewardedVideo")) {
             if (Time.time - timeSinceAdLoadStarted > 5) {
                 Restart();
                 yield break;
@@ -31,7 +31,7 @@ public class PlayAgainButton : MonoBehaviour {
         }
 
         var options = new ShowOptions { resultCallback = HandleShowResult };
-        Advertisement.Show(null, options);
+        Advertisement.Show("rewardedVideo", options);
     }
 
     private void HandleShowResult(ShowResult showResult) {
