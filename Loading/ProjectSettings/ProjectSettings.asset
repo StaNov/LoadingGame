@@ -92,14 +92,14 @@ PlayerSettings:
     16:9: 1
     Others: 1
   bundleIdentifier: cz.stanov.loading
-  bundleVersion: 0.1
+  bundleVersion: 1.0
   preloadedAssets: []
   metroEnableIndependentInputSource: 0
   metroEnableLowLatencyPresentationAPI: 0
   xboxOneDisableKinectGpuReservation: 0
   virtualRealitySupported: 0
   productGUID: 687b9cc0846aca749905088ea8ffb5a4
-  AndroidBundleVersionCode: 8
+  AndroidBundleVersionCode: 9
   AndroidMinSdkVersion: 9
   AndroidPreferredInstallLocation: 1
   aotOptions: 
