@@ -1859,11 +1859,13 @@ MonoBehaviour:
     in a minute!'
   - 'Just wait
 
-    a second, ok?'
+    a second, okay?'
   - You can't speed up my guts that way!
   - Leave me alone!
   - '...'
-  - Okay okay, I'm going out, okay?!
+  - 'Fine... I''m coming out,
+
+    okay?!'
 --- !u!1 &2041356983
 GameObject:
   m_ObjectHideFlags: 0
