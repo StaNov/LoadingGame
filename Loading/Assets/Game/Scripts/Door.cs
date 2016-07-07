@@ -6,6 +6,7 @@ using System.Collections;
 public class Door : MonoBehaviour {
 
     public AudioClip[] knocks;
+    public AudioClip coneFly;
     public GameObject closedDoor;
     public GameObject openedDoor;
     public CompoundCollider doorCollider;
@@ -64,7 +65,7 @@ public class Door : MonoBehaviour {
             return;
         }
 
-        audioSource.PlayOneShot(knocks[Random.Range(0, knocks.Length)]);
+        audioSource.PlayOneShot(coneFly);
         // animator.SetTrigger("knock"); // TODO
         DialogueSystem.OnHeartClicked();
     }

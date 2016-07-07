@@ -23,6 +23,7 @@ I want to be an indie game developer. So this is my first real try to make a non
 * Fart sound: http://soundbible.com/643-Motor-Bike-Fart.html
 * Fanfare: http://soundbible.com/1003-Ta-Da.html
 * Forest ambience: http://soundbible.com/1818-Rainforest-Ambience.html
+* Cone fly: http://soundbible.com/963-Arrow.html
 
 * Font: https://fonts.google.com/specimen/Tillana?query=tillana
 

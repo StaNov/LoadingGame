@@ -911,6 +911,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: b012a333277db814183c71d78c601b9e, type: 3}
   - {fileID: 8300000, guid: a6bfd17c207b19846bfe2aebd722c17a, type: 3}
   - {fileID: 8300000, guid: af095bdf3e4e4934ead927406389d55e, type: 3}
+  coneFly: {fileID: 8300000, guid: b396019106cf65b4ba078604c29bc5e4, type: 3}
   closedDoor: {fileID: 378524939}
   openedDoor: {fileID: 1696440627}
   doorCollider: {fileID: 393591745}
