@@ -8,6 +8,8 @@ public class Door : MonoBehaviour {
     public AudioClip[] knocks;
     public GameObject closedDoor;
     public GameObject openedDoor;
+    public CompoundCollider doorCollider;
+    public CompoundCollider heartCollider;
 
     private static Door instance;
 
@@ -20,6 +22,14 @@ public class Door : MonoBehaviour {
         audioSource = GetComponent<AudioSource>();
         animator = GetComponent<Animator>();
 
+        doorCollider.onClickAction = () => {
+            OnDoorClicked();
+        };
+
+        heartCollider.onClickAction = () => {
+            OnHeartClicked();
+        };
+
         closedDoor.SetActive(true);
         openedDoor.SetActive(false);
     }
@@ -31,7 +41,7 @@ public class Door : MonoBehaviour {
         knockingEnabled = true;
     }
 
-    void OnMouseDown() {
+    void OnDoorClicked() {
         if (!knockingEnabled) {
             return;
         }
@@ -43,6 +53,10 @@ public class Door : MonoBehaviour {
         audioSource.PlayOneShot(knocks[Random.Range(0, knocks.Length)]);
         animator.SetTrigger("knock");
         DialogueSystem.OnKnock();
+    }
+
+    void OnHeartClicked() {
+        Debug.Log("HEART CLICKED!");
     }
 
     public static void DisableKnocking() {
