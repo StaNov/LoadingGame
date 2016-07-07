@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using UnityEngine.Serialization;
+using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using System.Collections;
@@ -9,11 +10,15 @@ public class DialogueSystem : MonoBehaviour, IPointerDownHandler {
     public GameObject wrapper;
     public Text text;
     public float secondsBeforeDialogMayBeClosed = 0.7f;
-
+    
     [Multiline]
-    public string[] dialogueLines;
+    public string[] dialogueLinesKnocking;
+    [Multiline]
+    public string[] dialogueLinesHeart;
 
-    private int currentLinesIndex;
+    private int currentLinesIndexKnocking;
+    private int currentLinesIndexHeart;
+
     private float timeLastLineShowed;
     
 
@@ -21,7 +26,8 @@ public class DialogueSystem : MonoBehaviour, IPointerDownHandler {
 
     void Awake() {
         instance = this;
-        currentLinesIndex = 0;
+        currentLinesIndexKnocking = 0;
+        currentLinesIndexHeart = 0;
     }
 
     void Start () {
@@ -32,17 +38,39 @@ public class DialogueSystem : MonoBehaviour, IPointerDownHandler {
         instance.StartCoroutine(instance.OnKnockCoroutine());
     }
 
+    public static void OnHeartClicked() {
+        instance.StartCoroutine(instance.OnHeartCoroutine());
+    }
+
     IEnumerator OnKnockCoroutine() {
         // wait for one frame because we dont want the button to be pressed right after enabling
         yield return null;
 
-        if (currentLinesIndex >= dialogueLines.Length) {
+        if (currentLinesIndexKnocking >= dialogueLinesKnocking.Length) {
             Debug.Log("No more dialogue lines.");
             yield break;
         }
         
-        instance.text.text = dialogueLines[currentLinesIndex];
-        currentLinesIndex++;
+        instance.text.text = dialogueLinesKnocking[currentLinesIndexKnocking];
+        currentLinesIndexKnocking++;
+        currentLinesIndexHeart = 0;
+        timeLastLineShowed = Time.time;
+
+        instance.wrapper.SetActive(true);
+    }
+
+    IEnumerator OnHeartCoroutine() {
+        // wait for one frame because we dont want the button to be pressed right after enabling
+        yield return null;
+
+        if (currentLinesIndexHeart >= dialogueLinesHeart.Length) {
+            Debug.Log("No more dialogue lines.");
+            yield break;
+        }
+
+        instance.text.text = dialogueLinesHeart[currentLinesIndexHeart];
+        currentLinesIndexHeart++;
+        currentLinesIndexKnocking = 0;
         timeLastLineShowed = Time.time;
 
         instance.wrapper.SetActive(true);
@@ -60,14 +88,17 @@ public class DialogueSystem : MonoBehaviour, IPointerDownHandler {
 
         instance.wrapper.SetActive(false);
 
-        if (instance.currentLinesIndex >= instance.dialogueLines.Length) {
+        if (instance.currentLinesIndexKnocking >= instance.dialogueLinesKnocking.Length) {
             Door.DisableKnocking();
             LevelEnder.EndGame(LevelEnd.IMPATIENT);
+        } else if (instance.currentLinesIndexHeart >= instance.dialogueLinesHeart.Length) {
+            Door.DisableKnocking();
+            LevelEnder.EndGame(LevelEnd.HEART);
         }
 
     }
 
     public static bool DialogueStarted() {
-        return instance.currentLinesIndex > 0;
+        return instance.currentLinesIndexKnocking > 0;
     }
 }

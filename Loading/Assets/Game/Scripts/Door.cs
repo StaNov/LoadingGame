@@ -56,7 +56,17 @@ public class Door : MonoBehaviour {
     }
 
     void OnHeartClicked() {
-        Debug.Log("HEART CLICKED!");
+        if (!knockingEnabled) {
+            return;
+        }
+
+        if (EventSystem.current.IsPointerOverGameObject()) {
+            return;
+        }
+
+        audioSource.PlayOneShot(knocks[Random.Range(0, knocks.Length)]);
+        // animator.SetTrigger("knock"); // TODO
+        DialogueSystem.OnHeartClicked();
     }
 
     public static void DisableKnocking() {

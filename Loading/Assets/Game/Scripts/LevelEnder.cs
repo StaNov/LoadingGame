@@ -62,8 +62,10 @@ public class LevelEnder : MonoBehaviour {
             yield return new WaitForSeconds(fart.length);
         }
 
-        audioSource.PlayOneShot(toiletFlushing);
-        yield return new WaitForSeconds(toiletFlushing.length);
+        if (levelEnd != LevelEnd.HEART) {
+            audioSource.PlayOneShot(toiletFlushing);
+            yield return new WaitForSeconds(toiletFlushing.length);
+        }
 
         MainCamera.ZoomOut();
         Door.OpenDoor();
@@ -80,5 +82,5 @@ public class LevelEnder : MonoBehaviour {
 }
 
 public enum LevelEnd {
-    TEST, PATIENT, IMPATIENT, INTERRUPTED, VIOLENT, FIRE
+    TEST, PATIENT, IMPATIENT, INTERRUPTED, VIOLENT, FIRE, HEART
 }
