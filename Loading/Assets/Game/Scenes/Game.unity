@@ -293,7 +293,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &284188589
 RectTransform:
   m_ObjectHideFlags: 0
@@ -528,7 +528,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: 107e07555be9fd845bb5b871f96dc1a4, type: 2}
+  - {fileID: 2100000, guid: 46da7ae8d75abb24584e4a7978542b1e, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -1357,7 +1357,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &986248137
 Transform:
   m_ObjectHideFlags: 0
@@ -1991,7 +1991,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1630982481
 Transform:
   m_ObjectHideFlags: 0
@@ -2080,7 +2080,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: d230ef6dc4d8c134d8c7a68b1d6a3b1d, type: 2}
+  - {fileID: 2100000, guid: aa1c689c7b718f7409b99d89c9111717, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -2440,7 +2440,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1854621846
 Transform:
   m_ObjectHideFlags: 0
@@ -2557,16 +2557,14 @@ MonoBehaviour:
   - You can't speed up my guts that way!
   - Leave me alone!
   - '...'
-  - 'Fine... I''m coming out,
-
-    okay?!'
+  - Fine... I'm coming out, okay?!
   dialogueLinesHeart:
-  - Hey! Stop it!
   - Don't throw your cones at me!
+  - Hey! Stop it!
   - Okay, I know this is YOUR latrine!
   - But it was the only one nearby!
-  - Have some mercy with a dwarf in need!
-  - What if you were in my shoes!
+  - Have mercy with a dwarf in need!
+  - What if you were in my shoes?!
   - You know what? Your latrine doesn't deserve my package!
 --- !u!1 &2041356983
 GameObject:
