@@ -25,6 +25,7 @@
 public static class AchievementsConstants
 {
         public const string achievement_interrupted_ending = "CgkIvon-9KIPEAIQBQ"; // <GPGSID>
+        public const string achievement_throw_out_ending = "CgkIvon-9KIPEAIQBg"; // <GPGSID>
         public const string achievement_fire_ending = "CgkIvon-9KIPEAIQBA"; // <GPGSID>
         public const string achievement_patient_ending = "CgkIvon-9KIPEAIQAQ"; // <GPGSID>
         public const string achievement_impatient_ending = "CgkIvon-9KIPEAIQAg"; // <GPGSID>

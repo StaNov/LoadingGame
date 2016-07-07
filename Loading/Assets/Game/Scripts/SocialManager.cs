@@ -66,6 +66,8 @@ public class SocialManager : MonoBehaviour {
                 return AchievementsConstants.achievement_violent_ending;
             case LevelEnd.FIRE:
                 return AchievementsConstants.achievement_fire_ending;
+            case LevelEnd.HEART:
+                return AchievementsConstants.achievement_throw_out_ending;
         }
 
         return null;

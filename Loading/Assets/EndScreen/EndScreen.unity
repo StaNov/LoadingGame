@@ -2330,6 +2330,8 @@ MonoBehaviour:
     label: Fire Ending
   - levelEnd: 0
     label: Test Ending
+  - levelEnd: 6
+    label: Throw Out Ending
   endingLabelsParent: {fileID: 596203900}
   panel: {fileID: 898704576}
   textNotUnlockedAll: {fileID: 517498925}

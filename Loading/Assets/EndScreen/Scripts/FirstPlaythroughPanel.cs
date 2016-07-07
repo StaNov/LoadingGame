@@ -35,6 +35,8 @@ public class FirstPlaythroughPanel : MonoBehaviour, IPointerClickHandler {
                 break;
             }
         }
+
+        Debug.LogError("Text for ending '" + LevelEnder.levelEnd.ToString() + "' not found!");
     }
 
     public void OnPointerClick(PointerEventData eventData) {
