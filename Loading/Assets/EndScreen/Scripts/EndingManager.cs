@@ -22,9 +22,11 @@ public class EndingManager : MonoBehaviour {
 
         SocialManager.UnlockAchievement(LevelEnder.levelEnd);
 
+        #if !UNITY_EDITOR
         Analytics.CustomEvent("EndSceneLoaded", new Dictionary<string, object> {
             { "LevelEnd", LevelEnder.levelEnd.ToString() },
             { "FirstTimeAchieved", ! levelEndAlreadyUnlocked }
         });
+        #endif
     }
 }
