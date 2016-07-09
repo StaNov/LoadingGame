@@ -10,6 +10,7 @@ public class LevelEnder : MonoBehaviour {
     public AudioClip doorSqueak;
     public AudioClip fart;
     public GameObject dwarf;
+    public Material dwarfToiletPapered;
 
     private static LevelEnder instance;
     public static LevelEnd levelEnd {get; private set;}
@@ -68,7 +69,13 @@ public class LevelEnder : MonoBehaviour {
         }
 
         MainCamera.ZoomOut();
-        Door.OpenDoor();
+        if (levelEnd == LevelEnd.SHAKE) {
+            Door.OpenDoorCensored();
+            dwarf.GetComponentInChildren<Renderer>().material = dwarfToiletPapered;
+        } else {
+            Door.OpenDoor();
+        }
+        
         audioSource.PlayOneShot(doorSqueak);
         yield return new WaitForSeconds(doorSqueak.length);
 

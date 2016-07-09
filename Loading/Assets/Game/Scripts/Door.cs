@@ -9,6 +9,7 @@ public class Door : MonoBehaviour {
     public AudioClip coneFly;
     public GameObject closedDoor;
     public GameObject openedDoor;
+    public GameObject openedDoorCensored;
     public CompoundCollider doorCollider;
     public CompoundCollider heartCollider;
 
@@ -33,6 +34,7 @@ public class Door : MonoBehaviour {
 
         closedDoor.SetActive(true);
         openedDoor.SetActive(false);
+        openedDoorCensored.SetActive(false);
     }
 
     IEnumerator Start() {
@@ -78,5 +80,11 @@ public class Door : MonoBehaviour {
         LoadingBar.DestroySelf();
         instance.closedDoor.SetActive(false);
         instance.openedDoor.SetActive(true);
+    }
+
+    public static void OpenDoorCensored() {
+        LoadingBar.DestroySelf();
+        instance.closedDoor.SetActive(false);
+        instance.openedDoorCensored.SetActive(true);
     }
 }
