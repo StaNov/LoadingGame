@@ -32,7 +32,7 @@ public class FirstPlaythroughPanel : MonoBehaviour, IPointerClickHandler {
         foreach (LevelEndLabel text in texts) {
             if (text.levelEnd == LevelEnder.levelEnd) {
                 textNotUnlockedAll.text = textNotUnlockedAll.text.Replace("%ENDING%", text.label);
-                break;
+                return;
             }
         }
 
