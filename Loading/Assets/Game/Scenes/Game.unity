@@ -3012,7 +3012,7 @@ MonoBehaviour:
   wrapper: {fileID: 1236748909}
   text: {fileID: 1003361331}
   secondsBeforeDialogMayBeClosed: 0.7
-  dialogueLinesKnocking:
+  dialogueLinesKnockingOld:
   - 'Somebody''s
 
     in here!'
@@ -3026,7 +3026,7 @@ MonoBehaviour:
   - Leave me alone!
   - '...'
   - Fine... I'm coming out, okay?!
-  dialogueLinesHeart:
+  dialogueLinesHeartOld:
   - Don't throw your cones at me!
   - Hey! Stop it!
   - Okay, I know this is YOUR latrine!
@@ -3034,10 +3034,53 @@ MonoBehaviour:
   - Have mercy with a dwarf in need!
   - What if you were in my shoes?!
   - You know what? Your latrine doesn't deserve my package!
-  dialogueLinesShake:
+  dialogueLinesShakeOld:
   - Shake 1
   - Shake 2
   - Shake 3
+  dialogueLinesKnocking:
+  - text: 'Somebody''s
+
+      in here!'
+    showNextLineAfterThis: 0
+  - text: 'I''ll be out
+
+      in a minute!'
+    showNextLineAfterThis: 0
+  - text: 'Just wait
+
+      a second, okay?'
+    showNextLineAfterThis: 0
+  - text: You can't speed up my guts that way!
+    showNextLineAfterThis: 0
+  - text: Leave me alone!
+    showNextLineAfterThis: 0
+  - text: '...'
+    showNextLineAfterThis: 0
+  - text: Fine... I'm coming out, okay?!
+    showNextLineAfterThis: 0
+  dialogueLinesHeart:
+  - text: Don't throw pinecones at me!
+    showNextLineAfterThis: 0
+  - text: Hey! Stop it!
+    showNextLineAfterThis: 0
+  - text: Okay, I know this is YOUR latrine!
+    showNextLineAfterThis: 0
+  - text: But it was the only one nearby!
+    showNextLineAfterThis: 0
+  - text: Have mercy with a dwarf in need!
+    showNextLineAfterThis: 0
+  - text: What if you were in my shoes?!
+    showNextLineAfterThis: 0
+  - text: You know what? Your latrine doesn't deserve my package!
+    showNextLineAfterThis: 0
+  dialogueLinesShake:
+  - text: Shake 1
+    showNextLineAfterThis: 0
+  - text: Shake 2
+    showNextLineAfterThis: 0
+  - text: Shake 3
+    showNextLineAfterThis: 0
 --- !u!1 &2041356983
 GameObject:
   m_ObjectHideFlags: 0

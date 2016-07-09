@@ -11,12 +11,9 @@ public class DialogueSystem : MonoBehaviour, IPointerDownHandler {
     public Text text;
     public float secondsBeforeDialogMayBeClosed = 0.7f;
     
-    [Multiline]
-    public string[] dialogueLinesKnocking;
-    [Multiline]
-    public string[] dialogueLinesHeart;
-    [Multiline]
-    public string[] dialogueLinesShake;
+    public DialogueLine[] dialogueLinesKnocking;
+    public DialogueLine[] dialogueLinesHeart;
+    public DialogueLine[] dialogueLinesShake;
 
     private int currentLinesIndexKnocking;
     private int currentLinesIndexHeart;
@@ -66,7 +63,7 @@ public class DialogueSystem : MonoBehaviour, IPointerDownHandler {
             yield break;
         }
         
-        instance.text.text = dialogueLinesKnocking[currentLinesIndexKnocking];
+        instance.text.text = dialogueLinesKnocking[currentLinesIndexKnocking].text;
         currentLinesIndexKnocking++;
         currentLinesIndexHeart = 0;
         currentLinesIndexShake = 0;
@@ -84,7 +81,7 @@ public class DialogueSystem : MonoBehaviour, IPointerDownHandler {
             yield break;
         }
 
-        instance.text.text = dialogueLinesHeart[currentLinesIndexHeart];
+        instance.text.text = dialogueLinesHeart[currentLinesIndexHeart].text;
         currentLinesIndexHeart++;
         currentLinesIndexKnocking = 0;
         currentLinesIndexShake = 0;
@@ -102,7 +99,7 @@ public class DialogueSystem : MonoBehaviour, IPointerDownHandler {
             yield break;
         }
 
-        instance.text.text = dialogueLinesShake[currentLinesIndexShake];
+        instance.text.text = dialogueLinesShake[currentLinesIndexShake].text;
         currentLinesIndexShake++;
         currentLinesIndexHeart = 0;
         currentLinesIndexKnocking = 0;
@@ -134,10 +131,18 @@ public class DialogueSystem : MonoBehaviour, IPointerDownHandler {
             Door.DisableKnocking();
             LevelEnder.EndGame(LevelEnd.SHAKE);
         }
-
     }
 
     public static bool DialogueKnockingStarted() {
         return instance.currentLinesIndexKnocking > 0;
     }
+}
+
+[System.Serializable]
+public class DialogueLine {
+
+    [Multiline]
+    public string text;
+
+    public bool showNextLineAfterThis = false;
 }
