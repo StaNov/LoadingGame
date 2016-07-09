@@ -15,94 +15,63 @@ public class DialogueSystem : MonoBehaviour, IPointerDownHandler {
     public DialogueLine[] dialogueLinesHeart;
     public DialogueLine[] dialogueLinesShake;
 
-    private int currentLinesIndexKnocking;
-    private int currentLinesIndexHeart;
-    private int currentLinesIndexShake;
+    private int currentLinesIndex;
+    private DialogueLine[] currentDialogueLines { get {
+            switch (currentLevelEnd) {
+                case LevelEnd.IMPATIENT:
+                    return dialogueLinesKnocking;
+                case LevelEnd.HEART:
+                    return dialogueLinesHeart;
+                case LevelEnd.SHAKE:
+                    return dialogueLinesShake;
+                default:
+                    Debug.LogError("No lines found for topic " + currentLevelEnd + "!!!");
+                    return null;
+            }
+    } }
 
     private float timeLastLineShowed;
     private bool isDialogueShown;
+    private LevelEnd currentLevelEnd;
     
 
     private static DialogueSystem instance;
 
     void Awake() {
         instance = this;
-        currentLinesIndexKnocking = 0;
-        currentLinesIndexHeart = 0;
-        currentLinesIndexShake = 0;
     }
 
     void Start () {
         wrapper.SetActive(false);
         isDialogueShown = false;
+        currentLevelEnd = LevelEnd.NONE;
     }
 
-    public static void OnKnock() {
+    public static void Trigger(LevelEnd topic) {
+        if (instance.isDialogueShown) {
+            return;
+        }
+
+        if (topic != instance.currentLevelEnd) {
+            instance.currentLinesIndex = 0;
+        }
+
+        instance.currentLevelEnd = topic;
         instance.isDialogueShown = true;
-        instance.StartCoroutine(instance.OnKnockCoroutine());
+        instance.StartCoroutine(instance.TriggerCoroutine(topic));
     }
 
-    public static void OnHeartClicked() {
-        instance.isDialogueShown = true;
-        instance.StartCoroutine(instance.OnHeartCoroutine());
-    }
-
-    public static void OnShake() {
-        if (! instance.isDialogueShown) {
-            instance.isDialogueShown = true;
-            instance.StartCoroutine(instance.OnShakeCoroutine());
-        }
-    }
-
-    IEnumerator OnKnockCoroutine() {
+    IEnumerator TriggerCoroutine(LevelEnd topic) {
         // wait for one frame because we dont want the button to be pressed right after enabling
         yield return null;
 
-        if (currentLinesIndexKnocking >= dialogueLinesKnocking.Length) {
-            Debug.Log("No more dialogue lines.");
-            yield break;
-        }
-        
-        instance.text.text = dialogueLinesKnocking[currentLinesIndexKnocking].text;
-        currentLinesIndexKnocking++;
-        currentLinesIndexHeart = 0;
-        currentLinesIndexShake = 0;
-        timeLastLineShowed = Time.time;
-
-        instance.wrapper.SetActive(true);
-    }
-
-    IEnumerator OnHeartCoroutine() {
-        // wait for one frame because we dont want the button to be pressed right after enabling
-        yield return null;
-
-        if (currentLinesIndexHeart >= dialogueLinesHeart.Length) {
+        if (currentLinesIndex >= dialogueLinesKnocking.Length) {
             Debug.Log("No more dialogue lines.");
             yield break;
         }
 
-        instance.text.text = dialogueLinesHeart[currentLinesIndexHeart].text;
-        currentLinesIndexHeart++;
-        currentLinesIndexKnocking = 0;
-        currentLinesIndexShake = 0;
-        timeLastLineShowed = Time.time;
-
-        instance.wrapper.SetActive(true);
-    }
-
-    IEnumerator OnShakeCoroutine() {
-        // wait for one frame because we dont want the button to be pressed right after enabling
-        yield return null;
-
-        if (currentLinesIndexShake >= dialogueLinesShake.Length) {
-            Debug.Log("No more dialogue lines.");
-            yield break;
-        }
-
-        instance.text.text = dialogueLinesShake[currentLinesIndexShake].text;
-        currentLinesIndexShake++;
-        currentLinesIndexHeart = 0;
-        currentLinesIndexKnocking = 0;
+        instance.text.text = currentDialogueLines[currentLinesIndex].text;
+        currentLinesIndex++;
         timeLastLineShowed = Time.time;
 
         instance.wrapper.SetActive(true);
@@ -121,20 +90,14 @@ public class DialogueSystem : MonoBehaviour, IPointerDownHandler {
         instance.wrapper.SetActive(false);
         instance.isDialogueShown = false;
 
-        if (instance.currentLinesIndexKnocking >= instance.dialogueLinesKnocking.Length) {
+        if (instance.currentLinesIndex >= instance.currentDialogueLines.Length) {
             Door.DisableKnocking();
-            LevelEnder.EndGame(LevelEnd.IMPATIENT);
-        } else if (instance.currentLinesIndexHeart >= instance.dialogueLinesHeart.Length) {
-            Door.DisableKnocking();
-            LevelEnder.EndGame(LevelEnd.HEART);
-        } else if (instance.currentLinesIndexShake >= instance.dialogueLinesShake.Length) {
-            Door.DisableKnocking();
-            LevelEnder.EndGame(LevelEnd.SHAKE);
+            LevelEnder.EndGame(instance.currentLevelEnd);
         }
     }
 
-    public static bool DialogueKnockingStarted() {
-        return instance.currentLinesIndexKnocking > 0;
+    public static bool DialogueStarted() {
+        return instance.currentLevelEnd != LevelEnd.NONE;
     }
 }
 

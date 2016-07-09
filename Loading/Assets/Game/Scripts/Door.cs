@@ -55,7 +55,7 @@ public class Door : MonoBehaviour {
 
         audioSource.PlayOneShot(knocks[Random.Range(0, knocks.Length)]);
         animator.SetTrigger("knock");
-        DialogueSystem.OnKnock();
+        DialogueSystem.Trigger(LevelEnd.IMPATIENT);
     }
 
     void OnHeartClicked() {
@@ -69,7 +69,7 @@ public class Door : MonoBehaviour {
 
         audioSource.PlayOneShot(coneFly);
         // animator.SetTrigger("knock"); // TODO
-        DialogueSystem.OnHeartClicked();
+        DialogueSystem.Trigger(LevelEnd.HEART);
     }
 
     public static void DisableKnocking() {

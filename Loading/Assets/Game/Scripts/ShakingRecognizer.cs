@@ -20,7 +20,7 @@ public class ShakingRecognizer : MonoBehaviour {
         #endif
 
         if (acceleration > 4.5) {
-            DialogueSystem.OnShake();
+            DialogueSystem.Trigger(LevelEnd.SHAKE);
         }
 	}
 }

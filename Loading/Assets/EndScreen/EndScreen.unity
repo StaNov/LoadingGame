@@ -290,7 +290,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11472990, guid: 052784342b3a6424e8258dd1806395fa, type: 2}
       propertyPath: levelEnd
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22403878, guid: 052784342b3a6424e8258dd1806395fa, type: 2}
       propertyPath: m_LocalScale.x
@@ -394,7 +394,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11472990, guid: 052784342b3a6424e8258dd1806395fa, type: 2}
       propertyPath: levelEnd
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 052784342b3a6424e8258dd1806395fa, type: 2}
@@ -486,7 +486,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11472990, guid: 052784342b3a6424e8258dd1806395fa, type: 2}
       propertyPath: levelEnd
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 22403878, guid: 052784342b3a6424e8258dd1806395fa, type: 2}
       propertyPath: m_LocalScale.x
@@ -1720,7 +1720,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11472990, guid: 052784342b3a6424e8258dd1806395fa, type: 2}
       propertyPath: levelEnd
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 22403878, guid: 052784342b3a6424e8258dd1806395fa, type: 2}
       propertyPath: m_LocalScale.x
@@ -2155,6 +2155,7 @@ MonoBehaviour:
   doorSqueak: {fileID: 0}
   fart: {fileID: 0}
   dwarf: {fileID: 0}
+  dwarfToiletPapered: {fileID: 0}
 --- !u!4 &978927095
 Transform:
   m_ObjectHideFlags: 0
@@ -2428,21 +2429,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   texts:
-  - levelEnd: 1
-    label: Patient Ending
   - levelEnd: 2
-    label: Impatient Ending
+    label: Patient Ending
   - levelEnd: 3
-    label: Interrupted Ending
+    label: Impatient Ending
   - levelEnd: 4
-    label: Violent Ending
+    label: Interrupted Ending
   - levelEnd: 5
-    label: Fire Ending
-  - levelEnd: 0
-    label: Test Ending
+    label: Violent Ending
   - levelEnd: 6
-    label: Throw Out Ending
+    label: Fire Ending
+  - levelEnd: 1
+    label: Test Ending
   - levelEnd: 7
+    label: Throw Out Ending
+  - levelEnd: 8
     label: Dirty Ending
   endingLabelsParent: {fileID: 596203900}
   panel: {fileID: 898704576}
@@ -2585,7 +2586,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11472990, guid: 052784342b3a6424e8258dd1806395fa, type: 2}
       propertyPath: levelEnd
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 052784342b3a6424e8258dd1806395fa, type: 2}
@@ -2955,7 +2956,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11472990, guid: 052784342b3a6424e8258dd1806395fa, type: 2}
       propertyPath: levelEnd
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 22403878, guid: 052784342b3a6424e8258dd1806395fa, type: 2}
       propertyPath: m_LocalScale.x

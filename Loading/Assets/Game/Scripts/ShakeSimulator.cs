@@ -10,6 +10,6 @@ public class ShakeSimulator : MonoBehaviour {
     }
 	
 	public void SimulateShake () {
-	    DialogueSystem.OnShake();
+	    DialogueSystem.Trigger(LevelEnd.SHAKE);
 	}
 }
