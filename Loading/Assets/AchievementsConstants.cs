@@ -29,6 +29,7 @@ public static class AchievementsConstants
         public const string achievement_fire_ending = "CgkIvon-9KIPEAIQBA"; // <GPGSID>
         public const string achievement_patient_ending = "CgkIvon-9KIPEAIQAQ"; // <GPGSID>
         public const string achievement_impatient_ending = "CgkIvon-9KIPEAIQAg"; // <GPGSID>
+        public const string achievement_dirty_ending = "CgkIvon-9KIPEAIQBw"; // <GPGSID>
         public const string achievement_violent_ending = "CgkIvon-9KIPEAIQAw"; // <GPGSID>
 
 }
