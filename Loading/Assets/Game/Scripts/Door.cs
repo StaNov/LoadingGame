@@ -17,7 +17,6 @@ public class Door : MonoBehaviour {
 
     private AudioSource audioSource;
     private Animator animator;
-    private bool knockingEnabled = false;
 
     void Awake() {
         instance = this;
@@ -40,12 +39,10 @@ public class Door : MonoBehaviour {
     IEnumerator Start() {
         // wait before knocking is enabled
         yield return new WaitForSeconds(0.5f);
-
-        knockingEnabled = true;
     }
 
     void OnDoorClicked() {
-        if (!knockingEnabled) {
+        if (!AcceptingInputStatus.isAcceptingInput) {
             return;
         }
 
@@ -59,7 +56,7 @@ public class Door : MonoBehaviour {
     }
 
     void OnHeartClicked() {
-        if (!knockingEnabled) {
+        if (!AcceptingInputStatus.isAcceptingInput) {
             return;
         }
 
@@ -70,10 +67,6 @@ public class Door : MonoBehaviour {
         audioSource.PlayOneShot(coneFly);
         // animator.SetTrigger("knock"); // TODO
         DialogueSystem.Trigger(LevelEnd.HEART);
-    }
-
-    public static void DisableKnocking() {
-        instance.knockingEnabled = false;
     }
 
     public static void OpenDoor() {

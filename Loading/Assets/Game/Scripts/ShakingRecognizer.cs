@@ -19,7 +19,7 @@ public class ShakingRecognizer : MonoBehaviour {
         text.text = Mathf.FloorToInt(Input.acceleration.sqrMagnitude).ToString();
         #endif
 
-        if (acceleration > 4.5) {
+        if (AcceptingInputStatus.isAcceptingInput && acceleration > 4.5) {
             DialogueSystem.Trigger(LevelEnd.SHAKE);
         }
 	}

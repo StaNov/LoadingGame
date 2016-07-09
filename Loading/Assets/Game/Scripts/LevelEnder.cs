@@ -54,7 +54,7 @@ public class LevelEnder : MonoBehaviour {
 
     IEnumerator EndGameCoroutine(LevelEnd levelEnd) {
         DialogueSystem.CloseDialogue();
-        Door.DisableKnocking();
+        AcceptingInputStatus.DisableAcceptingInput();
         BackgroundSoundPlayer.Stop();
 
         if (levelEnd == LevelEnd.IMPATIENT) {

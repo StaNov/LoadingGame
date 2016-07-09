@@ -91,7 +91,7 @@ public class DialogueSystem : MonoBehaviour, IPointerDownHandler {
         instance.currentLinesIndex++;
 
         if (instance.currentLinesIndex >= instance.currentDialogueLines.Length) {
-            Door.DisableKnocking();
+            AcceptingInputStatus.DisableAcceptingInput();
             LevelEnder.EndGame(instance.currentLevelEnd);
             return;
         }

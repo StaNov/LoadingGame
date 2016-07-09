@@ -8,8 +8,10 @@ public class ShakeSimulator : MonoBehaviour {
         Destroy(gameObject);
         #endif
     }
-	
-	public void SimulateShake () {
-	    DialogueSystem.Trigger(LevelEnd.SHAKE);
+
+    public void SimulateShake() {
+        if (AcceptingInputStatus.isAcceptingInput) {
+            DialogueSystem.Trigger(LevelEnd.SHAKE);
+        }
 	}
 }
