@@ -65,6 +65,8 @@ public class LoadingBar : MonoBehaviour {
     }
 
     public static void DestroySelf() {
-        Destroy(instance.transform.parent.gameObject);
+        if (instance != null) {
+            Destroy(instance.transform.parent.gameObject);
+        }
     }
 }

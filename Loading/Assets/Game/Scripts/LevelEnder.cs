@@ -63,7 +63,7 @@ public class LevelEnder : MonoBehaviour {
             yield return new WaitForSeconds(fart.length);
         }
 
-        if (levelEnd != LevelEnd.HEART) {
+        if (levelEnd != LevelEnd.HEART && levelEnd != LevelEnd.SHAKE) {
             audioSource.PlayOneShot(toiletFlushing);
             yield return new WaitForSeconds(toiletFlushing.length);
         }

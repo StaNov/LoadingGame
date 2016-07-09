@@ -70,7 +70,14 @@ public class DialogueSystem : MonoBehaviour, IPointerDownHandler {
             yield break;
         }
 
-        instance.text.text = currentDialogueLines[currentLinesIndex].text;
+        DialogueLine currentLine = currentDialogueLines[currentLinesIndex];
+
+        if (currentLine.showNextLineAfterThis) {
+            LoadingBar.DestroySelf();
+            BackgroundSoundPlayer.Stop();
+        }
+
+        instance.text.text = currentLine.text;
         timeLastLineShowed = Time.time;
 
         instance.wrapper.SetActive(true);
