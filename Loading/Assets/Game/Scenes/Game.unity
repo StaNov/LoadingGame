@@ -3091,7 +3091,7 @@ MonoBehaviour:
   dialogueLinesShake:
   - text: Hey! Don't shake with me!
     showNextLineAfterThis: 0
-  - text: Seriously! Do you know what can happen?
+  - text: Seriously! Do you know what may happen?
     showNextLineAfterThis: 0
   - text: NOOOOOO!!!
     showNextLineAfterThis: 1
@@ -3099,7 +3099,9 @@ MonoBehaviour:
     showNextLineAfterThis: 1
   - text: It's... everywhere...
     showNextLineAfterThis: 1
-  - text: How am I supposed to come out? So embarrassing...
+  - text: How am I supposed to come out?
+    showNextLineAfterThis: 1
+  - text: It's so embarrassing...
     showNextLineAfterThis: 1
   - text: Huh, I got an idea! Give me a second...
     showNextLineAfterThis: 1
