@@ -3012,32 +3012,6 @@ MonoBehaviour:
   wrapper: {fileID: 1236748909}
   text: {fileID: 1003361331}
   secondsBeforeDialogMayBeClosed: 0.7
-  dialogueLinesKnockingOld:
-  - 'Somebody''s
-
-    in here!'
-  - 'I''ll be out
-
-    in a minute!'
-  - 'Just wait
-
-    a second, okay?'
-  - You can't speed up my guts that way!
-  - Leave me alone!
-  - '...'
-  - Fine... I'm coming out, okay?!
-  dialogueLinesHeartOld:
-  - Don't throw your cones at me!
-  - Hey! Stop it!
-  - Okay, I know this is YOUR latrine!
-  - But it was the only one nearby!
-  - Have mercy with a dwarf in need!
-  - What if you were in my shoes?!
-  - You know what? Your latrine doesn't deserve my package!
-  dialogueLinesShakeOld:
-  - Shake 1
-  - Shake 2
-  - Shake 3
   dialogueLinesKnocking:
   - text: 'Somebody''s
 
@@ -3075,12 +3049,22 @@ MonoBehaviour:
   - text: You know what? Your latrine doesn't deserve my package!
     showNextLineAfterThis: 0
   dialogueLinesShake:
-  - text: Shake 1
+  - text: Hey! Don't shake with me!
     showNextLineAfterThis: 0
-  - text: Shake 2
+  - text: Seriously! Do you know what can happen?
     showNextLineAfterThis: 0
-  - text: Shake 3
-    showNextLineAfterThis: 0
+  - text: NOOOOOO!!!
+    showNextLineAfterThis: 1
+  - text: "Oh my god...\r"
+    showNextLineAfterThis: 1
+  - text: It's... everywhere...
+    showNextLineAfterThis: 1
+  - text: How am I supposed to come out? So embarrassing...
+    showNextLineAfterThis: 1
+  - text: Huh, I got an idea! Give me a second...
+    showNextLineAfterThis: 1
+  - text: Okay, I'm coming out!
+    showNextLineAfterThis: 1
 --- !u!1 &2041356983
 GameObject:
   m_ObjectHideFlags: 0

@@ -65,13 +65,12 @@ public class DialogueSystem : MonoBehaviour, IPointerDownHandler {
         // wait for one frame because we dont want the button to be pressed right after enabling
         yield return null;
 
-        if (currentLinesIndex >= dialogueLinesKnocking.Length) {
+        if (currentLinesIndex >= currentDialogueLines.Length) {
             Debug.Log("No more dialogue lines.");
             yield break;
         }
 
         instance.text.text = currentDialogueLines[currentLinesIndex].text;
-        currentLinesIndex++;
         timeLastLineShowed = Time.time;
 
         instance.wrapper.SetActive(true);
@@ -86,13 +85,20 @@ public class DialogueSystem : MonoBehaviour, IPointerDownHandler {
     }
 
     public static void CloseDialogue() {
-
         instance.wrapper.SetActive(false);
         instance.isDialogueShown = false;
+
+        instance.currentLinesIndex++;
 
         if (instance.currentLinesIndex >= instance.currentDialogueLines.Length) {
             Door.DisableKnocking();
             LevelEnder.EndGame(instance.currentLevelEnd);
+            return;
+        }
+
+        if (instance.currentDialogueLines[instance.currentLinesIndex - 1].showNextLineAfterThis) {
+            instance.wrapper.SetActive(true); // to not blink away for the one frame
+            Trigger(instance.currentLevelEnd);
         }
     }
 
