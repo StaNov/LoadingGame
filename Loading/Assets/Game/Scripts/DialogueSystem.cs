@@ -14,6 +14,7 @@ public class DialogueSystem : MonoBehaviour, IPointerDownHandler {
     public DialogueLine[] dialogueLinesKnocking;
     public DialogueLine[] dialogueLinesHeart;
     public DialogueLine[] dialogueLinesShake;
+    public DialogueLine[] dialogueLinesDrag;
 
     private int currentLinesIndex;
     private DialogueLine[] currentDialogueLines { get {
@@ -24,6 +25,8 @@ public class DialogueSystem : MonoBehaviour, IPointerDownHandler {
                     return dialogueLinesHeart;
                 case LevelEnd.SHAKE:
                     return dialogueLinesShake;
+                case LevelEnd.DRAG:
+                    return dialogueLinesDrag;
                 default:
                     Debug.LogError("No lines found for topic " + currentLevelEnd + "!!!");
                     return null;

@@ -3660,6 +3660,9 @@ MonoBehaviour:
     showNextLineAfterThis: 1
   - text: Okay, I'm coming out!
     showNextLineAfterThis: 1
+  dialogueLinesDrag:
+  - text: Well, it seems I'm done here earlier than expected :)
+    showNextLineAfterThis: 0
 --- !u!1 &2041356983
 GameObject:
   m_ObjectHideFlags: 0

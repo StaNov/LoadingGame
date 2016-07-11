@@ -116,7 +116,9 @@ public class LoadingBar : MonoBehaviour, IPointerDownHandler, IPointerUpHandler 
         );
 
         if (instance.CurrentPercentsByPosition() == 100) {
-            LevelEnder.EndGame(LevelEnd.DRAG);
+            DialogueSystem.Trigger(LevelEnd.DRAG);
+            OnDisableInput();
+            enabled = false;
         }
     }
 
