@@ -92,6 +92,10 @@ public class DialogueSystem : MonoBehaviour, IPointerDownHandler {
     }
 
     public static void CloseDialogue() {
+        if (!instance.isDialogueShown) {
+            return;
+        }
+
         instance.wrapper.SetActive(false);
         instance.isDialogueShown = false;
 
