@@ -1,9 +1,11 @@
 ﻿using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using System.Collections;
+using System;
 
-public class LoadingBar : MonoBehaviour {
+public class LoadingBar : MonoBehaviour, IPointerDownHandler, IPointerUpHandler {
 
     public float maximumWidth = 400;
     public float secondsToLoad = 20;
@@ -13,6 +15,8 @@ public class LoadingBar : MonoBehaviour {
     private int startPercents;
     private float startTime;
     private float endTime;
+    private float timeToAddOnePercent;
+    private bool dragging;
 
     private static LoadingBar instance;
 
@@ -24,35 +28,44 @@ public class LoadingBar : MonoBehaviour {
         startPercents = 0;
         startTime = Time.time;
         endTime = startTime + secondsToLoad;
+        timeToAddOnePercent = (endTime - startTime) / 100;
+        dragging = false;
     }
 
     void Update() {
 
-        if (CurrentPercents() == 100) {
+        if (CurrentPercentsByTime() == 100) {
             LevelEnd levelEnd = DialogueSystem.DialogueStarted() ? LevelEnd.INTERRUPTED : LevelEnd.PATIENT;
             LevelEnder.EndGame(levelEnd);
         }
-        
-        UpdatePercents();
+
+        if (!dragging) {
+            UpdatePercents();
+        }
+
+        UpdatePercentsText();
     }
 
     public static void FillRestOfLoadingBar(float seconds) {
-        instance.startPercents = instance.CurrentPercents();
+        instance.startPercents = instance.CurrentPercentsByTime();
         instance.startTime = Time.time;
         instance.endTime = instance.startTime + seconds;
     }
 
     private void UpdatePercents() {
-        int currentPercents = CurrentPercents();
+        int currentPercents = CurrentPercentsByTime();
 
         innerBarRectTransform.anchoredPosition = new Vector2(
             maximumWidth * (currentPercents / 100f),
             innerBarRectTransform.anchoredPosition.y
         );
-        percentsText.text = currentPercents + " %";
     }
 
-    private int CurrentPercents() {
+    private void UpdatePercentsText() {
+        percentsText.text = CurrentPercentsByPosition() + " %";
+    }
+
+    private int CurrentPercentsByTime() {
         if (Time.time >= endTime) {
             return 100;
         }
@@ -64,9 +77,29 @@ public class LoadingBar : MonoBehaviour {
         return Mathf.FloorToInt(result);
     }
 
+    private int CurrentPercentsByPosition() {
+        float position = innerBarRectTransform.anchoredPosition.x;
+
+        float percents = (position / maximumWidth) * 100;
+
+        return Mathf.FloorToInt(percents);
+    }
+
     public static void DestroySelf() {
         if (instance != null) {
             Destroy(instance.transform.parent.gameObject);
         }
+    }
+
+    public void OnPointerDown(PointerEventData eventData) {
+        dragging = true;
+    }
+
+    public void OnPointerUp(PointerEventData eventData) {
+        dragging = false;
+
+        instance.startPercents = instance.CurrentPercentsByPosition();
+        instance.startTime = Time.time;
+        instance.endTime = instance.startTime + (100-instance.startPercents) * timeToAddOnePercent;
     }
 }
