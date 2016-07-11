@@ -54,6 +54,7 @@ public class LevelEnder : MonoBehaviour {
 
     IEnumerator EndGameCoroutine(LevelEnd levelEnd) {
         DialogueSystem.CloseDialogue();
+        LoadingBar.OnDisableInput();
         AcceptingInputStatus.DisableAcceptingInput();
         BackgroundSoundPlayer.Stop();
 
@@ -89,5 +90,5 @@ public class LevelEnder : MonoBehaviour {
 }
 
 public enum LevelEnd {
-    NONE, TEST, PATIENT, IMPATIENT, INTERRUPTED, VIOLENT, FIRE, HEART, SHAKE
+    NONE, TEST, PATIENT, IMPATIENT, INTERRUPTED, VIOLENT, FIRE, HEART, SHAKE, DRAG
 }

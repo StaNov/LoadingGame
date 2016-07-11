@@ -106,9 +106,21 @@ public class LoadingBar : MonoBehaviour, IPointerDownHandler, IPointerUpHandler 
     }
 
     public void OnChange(Vector2 v) {
+        if (!dragging) {
+            return;
+        }
+
         innerBarRectTransform.anchoredPosition = new Vector2(
             Mathf.Clamp(innerBarRectTransform.anchoredPosition.x, 0, maximumWidth),
             innerBarRectTransform.anchoredPosition.y
         );
+
+        if (instance.CurrentPercentsByPosition() == 100) {
+            LevelEnder.EndGame(LevelEnd.DRAG);
+        }
+    }
+
+    public static void OnDisableInput() {
+        instance.GetComponent<ScrollRect>().enabled = false;
     }
 }
