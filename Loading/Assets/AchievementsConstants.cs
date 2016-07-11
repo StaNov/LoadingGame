@@ -24,6 +24,7 @@
 
 public static class AchievementsConstants
 {
+        public const string achievement_guts_control_ending = "CgkIvon-9KIPEAIQCA"; // <GPGSID>
         public const string achievement_interrupted_ending = "CgkIvon-9KIPEAIQBQ"; // <GPGSID>
         public const string achievement_throw_out_ending = "CgkIvon-9KIPEAIQBg"; // <GPGSID>
         public const string achievement_fire_ending = "CgkIvon-9KIPEAIQBA"; // <GPGSID>
