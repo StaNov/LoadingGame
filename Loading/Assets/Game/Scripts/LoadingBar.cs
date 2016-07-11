@@ -82,7 +82,9 @@ public class LoadingBar : MonoBehaviour, IPointerDownHandler, IPointerUpHandler 
 
         float percents = (position / maximumWidth) * 100;
 
-        return Mathf.FloorToInt(percents);
+        int percentsInt = Mathf.FloorToInt(percents);
+
+        return Mathf.Clamp(percentsInt, 0, 100);
     }
 
     public static void DestroySelf() {
@@ -101,5 +103,12 @@ public class LoadingBar : MonoBehaviour, IPointerDownHandler, IPointerUpHandler 
         instance.startPercents = instance.CurrentPercentsByPosition();
         instance.startTime = Time.time;
         instance.endTime = instance.startTime + (100-instance.startPercents) * timeToAddOnePercent;
+    }
+
+    public void OnChange(Vector2 v) {
+        innerBarRectTransform.anchoredPosition = new Vector2(
+            Mathf.Clamp(innerBarRectTransform.anchoredPosition.x, 0, maximumWidth),
+            innerBarRectTransform.anchoredPosition.y
+        );
     }
 }
