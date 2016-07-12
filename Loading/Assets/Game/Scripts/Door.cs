@@ -5,7 +5,7 @@ using System.Collections;
 
 public class Door : MonoBehaviour {
 
-    public AudioClip[] knocks;
+    public AudioClip knock;
     public AudioClip coneFly;
     public GameObject closedDoor;
     public GameObject openedDoor;
@@ -50,7 +50,7 @@ public class Door : MonoBehaviour {
             return;
         }
 
-        audioSource.PlayOneShot(knocks[Random.Range(0, knocks.Length)]);
+        audioSource.PlayOneShot(knock);
         animator.SetTrigger("knock");
         DialogueSystem.Trigger(LevelEnd.IMPATIENT);
     }
