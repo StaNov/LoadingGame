@@ -5,11 +5,12 @@ using UnityEngine.EventSystems;
 using System.Collections;
 using System;
 
-public class DialogueSystem : MonoBehaviour, IPointerDownHandler {
+public class DialogueSystem : MonoBehaviour {
 
     public GameObject wrapper;
     public Text text;
-    public float secondsBeforeDialogMayBeClosed = 0.7f;
+    public Button closeButton;
+    public float secondsBeforeCloseButtonIsShown = 1;
     
     public DialogueLine[] dialogueLinesKnocking;
     public DialogueLine[] dialogueLinesHeart;
@@ -61,19 +62,13 @@ public class DialogueSystem : MonoBehaviour, IPointerDownHandler {
 
         instance.currentLevelEnd = topic;
         instance.isDialogueShown = true;
-        instance.StartCoroutine(instance.TriggerCoroutine(topic));
-    }
 
-    IEnumerator TriggerCoroutine(LevelEnd topic) {
-        // wait for one frame because we dont want the button to be pressed right after enabling
-        yield return null;
-
-        if (currentLinesIndex >= currentDialogueLines.Length) {
+        if (instance.currentLinesIndex >= instance.currentDialogueLines.Length) {
             Debug.Log("No more dialogue lines.");
-            yield break;
+            return;
         }
 
-        DialogueLine currentLine = currentDialogueLines[currentLinesIndex];
+        DialogueLine currentLine = instance.currentDialogueLines[instance.currentLinesIndex];
 
         if (currentLine.showNextLineAfterThis) {
             LoadingBar.DestroySelf();
@@ -81,16 +76,20 @@ public class DialogueSystem : MonoBehaviour, IPointerDownHandler {
         }
 
         instance.text.text = currentLine.text;
-        timeLastLineShowed = Time.time;
+        instance.timeLastLineShowed = Time.time;
 
         instance.wrapper.SetActive(true);
+        instance.closeButton.gameObject.SetActive(false);
+        instance.StartCoroutine(instance.ShowButton());
+    }
+    
+    public IEnumerator ShowButton() {
+        yield return new WaitForSeconds(secondsBeforeCloseButtonIsShown);
+
+        closeButton.gameObject.SetActive(true);
     }
 
-    public void OnPointerDown(PointerEventData eventData) {
-        if (Time.time - timeLastLineShowed < secondsBeforeDialogMayBeClosed) {
-            return;
-        }
-
+    public void CloseDialogueNonStaticWrapper() {
         CloseDialogue();
     }
 
