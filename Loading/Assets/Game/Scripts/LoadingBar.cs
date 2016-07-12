@@ -123,6 +123,10 @@ public class LoadingBar : MonoBehaviour, IPointerDownHandler, IPointerUpHandler 
     }
 
     public static void OnDisableInput() {
+        if (instance == null) {
+            return;
+        }
+
         instance.GetComponent<ScrollRect>().enabled = false;
     }
 }
