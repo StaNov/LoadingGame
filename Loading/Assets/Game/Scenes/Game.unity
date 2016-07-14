@@ -3937,7 +3937,7 @@ MonoBehaviour:
   wrapper: {fileID: 1236748909}
   text: {fileID: 1003361331}
   closeButton: {fileID: 126175367}
-  secondsBeforeCloseButtonIsShown: 1
+  secondsBeforeCloseButtonIsShown: 1.5
   dialogueLinesKnocking:
   - text: 'Somebody''s
 
