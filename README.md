@@ -25,6 +25,8 @@ I want to be an indie game developer. So this is my first real try to make a non
 * Forest ambience: http://soundbible.com/1818-Rainforest-Ambience.html
 * Cone fly: http://soundbible.com/963-Arrow.html
 
+* Right arrow on dialogue bubble: http://www.clker.com/cliparts/s/S/H/v/3/0/transparent-arrow-right-md.png
+
 * Font: https://fonts.google.com/specimen/Tillana?query=tillana
 
 ## Game Design
