@@ -30,6 +30,7 @@ public class LoadingBar : MonoBehaviour, IPointerDownHandler, IPointerUpHandler 
         endTime = startTime + secondsToLoad;
         timeToAddOnePercent = (endTime - startTime) / 100;
         dragging = false;
+        UpdateInnerBarPosition();
     }
 
     void Update() {
@@ -40,7 +41,7 @@ public class LoadingBar : MonoBehaviour, IPointerDownHandler, IPointerUpHandler 
         }
 
         if (!dragging) {
-            UpdatePercents();
+            UpdateInnerBarPosition();
         }
 
         UpdatePercentsText();
@@ -52,7 +53,7 @@ public class LoadingBar : MonoBehaviour, IPointerDownHandler, IPointerUpHandler 
         instance.endTime = instance.startTime + seconds;
     }
 
-    private void UpdatePercents() {
+    private void UpdateInnerBarPosition() {
         int currentPercents = CurrentPercentsByTime();
 
         innerBarRectTransform.anchoredPosition = new Vector2(
