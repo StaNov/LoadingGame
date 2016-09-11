@@ -1,6 +1,8 @@
 # LoadingGame
 Game called "Loading..." made with Unity
 
+[![](https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png)](https://play.google.com/store/apps/details?id=cz.stanov.loading)
+
 ## Why am I doing this?
 
 I want to be an indie game developer. So this is my first real try to make a non-LudumDare game.
